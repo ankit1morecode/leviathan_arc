@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0f1a;
+}
+
+#map {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* topbar */
+.topbar {
+  position: absolute;
+  z-index: 999;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+
+  padding: 10px 14px;
+  border-radius: 12px;
+
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.title {
+  font-weight: 800;
+  margin-right: 8px;
+}
+
+.badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.btn {
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+
+  padding: 7px 12px;
+  border: none;
+
+  background: #2563eb;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+}
+
+.secondary { background: #374151; }
+.danger { background: #dc2626; }

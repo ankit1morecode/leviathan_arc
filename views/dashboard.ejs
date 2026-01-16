@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leviathan Dashboard</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Leviathan ARC Dashboard</h1>
+
+    <div class="cards">
+      <div class="card">
+        <h2>Robot ID</h2>
+        <p id="robotId">--</p>
+      </div>
+
+      <div class="card">
+        <h2>Temperature</h2>
+        <p id="temp">--</p>
+      </div>
+
+      <div class="card">
+        <h2>Unit</h2>
+        <p id="unit">--</p>
+      </div>
+
+      <div class="card">
+        <h2>Last Update</h2>
+        <p id="time">--</p>
+      </div>
+
+      <div class="card">
+        <h2>Distance Travelled</h2>
+        <p id="distance">0 m</p>
+      </div>
+
+      <div class="card">
+        <h2>Speed</h2>
+        <p id="speed">0 km/h</p>
+      </div>
+    </div>
+
+    <div class="sensor-grid">
+      <div class="card">
+        <h2>Humidity</h2>
+        <p id="humidity">--</p>
+      </div>
+
+      <div class="card">
+        <h2>Humans Detected</h2>
+        <p id="humanCount">0</p>
+      </div>
+
+      <div class="card">
+        <h2>Gas Sensor</h2>
+        <p><b>Raw:</b> <span id="gasRaw">--</span></p>
+        <p><b>Voltage:</b> <span id="gasVoltage">--</span> V</p>
+        <p><b>Status:</b> <span id="gasStatus">NO_DATA</span></p>
+      </div>
+    </div>
+
+      <div class="controls">
+        <button onclick="startRecord()">⏺ Start Record</button>
+        <button onclick="stopRecord()">⏹ Stop Record</button>
+        <button onclick="replay()">▶ Replay Path</button>
+      </div>
+    </div>
+
+    <div>
+      <a href="/map" class="btn-map">🗺 Map</a>
+    </div>
+
+    <div class="logs-section">
+      <h3>Live Data Logs</h3>
+      <div id="logs" class="logs"></div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>

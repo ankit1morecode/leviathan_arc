@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARC01 Live Map</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="/css/map.css">
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="title">🗺 ARC01 Live Map</div>
+
+    <a class="btn" href="/">⬅ Dashboard</a>
+
+    <div class="badge">GPS: <span id="gpsStatus">Waiting…</span></div>
+    <div class="badge">Humans: <span id="humanCount">0</span></div>
+
+    <button class="btn secondary" id="btnFollow">🎯 Follow: ON</button>
+    <button class="btn secondary" id="btnTogglePath">🧵 Path: ON</button>
+    <button class="btn secondary" id="btnToggleObstacles">🚧 Obstacles: ON</button>
+    <button class="btn secondary" id="btnToggleHumans">🧍 Humans: ON</button>
+
+    <button class="btn danger" id="btnReset">♻ Reset</button>
+  </div>
+
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script src="/js/map.js"></script>
+</body>
+</html>
