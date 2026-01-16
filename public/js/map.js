@@ -192,8 +192,8 @@ async function apiGetPath(name) {
   return await res.json();
 }
 
-async function apiDeletePath(name) {
-  await fetch(`/api/gpspath/${ROBOT_ID}/${name}`, { method: "DELETE" });
+async function apiDeletePath(id) {
+  await fetch(`/api/gpspath/${id}`, { method: "DELETE" });
 }
 
 function formatDate(d) {
@@ -241,7 +241,7 @@ async function refreshSidebar() {
       const ok = confirm(`Delete path "${p.name}" ?`);
       if (!ok) return;
 
-      await apiDeletePath(p.name);
+      await apiDeletePath(p._id);
 
       if (selectedPathName === p.name) selectedPathName = "";
       await refreshSidebar();

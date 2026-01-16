@@ -9,6 +9,24 @@ body {
   width: 100vw;
 }
 
+/* ✅ keep topbar always above */
+.topbar {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+}
+
+/* ✅ sidebar starts under topbar dynamically */
+.sidebar {
+  position: fixed;
+  top: 90px;
+  left: 10px;
+  width: 260px;
+  max-height: calc(100vh - 120px);
+}
+
+
 .topbar {
   position: absolute;
   z-index: 999;
