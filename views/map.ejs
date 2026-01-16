@@ -13,6 +13,13 @@
 </head>
 
 <body>
+
+  <!-- ✅ Sidebar -->
+  <div class="sidebar">
+    <div class="sb-title">📍 Saved Paths</div>
+    <div id="pathsList" class="pathsList"></div>
+  </div>
+
   <div class="topbar">
     <div class="title">🗺 ARC01 Live Map</div>
 
@@ -20,6 +27,12 @@
 
     <div class="badge">GPS: <span id="gpsStatus">Waiting…</span></div>
     <div class="badge">Humans: <span id="humanCount">0</span></div>
+
+    <!-- ✅ Record/Replay controls -->
+    <input id="pathName" class="input" placeholder="Path name e.g route1" />
+    <button class="btn secondary" id="btnStartRecord">⏺ Start</button>
+    <button class="btn secondary" id="btnStopRecord">⏹ Stop</button>
+    <button class="btn" id="btnReplayPath">▶ Replay</button>
 
     <button class="btn secondary" id="btnFollow">🎯 Follow: ON</button>
     <button class="btn secondary" id="btnTogglePath">🧵 Path: ON</button>

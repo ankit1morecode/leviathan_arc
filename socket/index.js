@@ -26,7 +26,7 @@ module.exports = function setupSocket(server) {
     try {
       const latestTemp = await Telemetry.findOne().sort({ createdAt: -1 });
 
-      if (latestTemp) {
+      if(latestTemp){
         socket.emit("temp_update", {
           robot_id: latestTemp.robot_id,
           temperature: latestTemp.temperature,

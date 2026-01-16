@@ -12,7 +12,7 @@ module.exports = function createMQTTClient() {
       "leviathan/arc01/gps",
       "leviathan/arc01/humidity",
       "leviathan/arc01/obstacle",
-      "leviathan/arc01/thermalhumans",
+      "leviathan/arc01/thermal/humans",
       "leviathan/arc01/gas",
     ];
 

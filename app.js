@@ -4,17 +4,19 @@ const connectDB = require("./config/db");
 
 const dashboardRoutes = require("./routes/dashboardRoutes");
 const mapRoutes = require("./routes/mapRoutes");
+const gpsPathRoutes = require("./routes/gpsPathRoutes");
 
 const app = express();
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 connectDB();
 
 app.use("/", dashboardRoutes);
-app.use("/record", recordRoutes);
-app.use("/replay", replayRoutes);
 app.use("/map", mapRoutes);
+app.use("/api/gpspath", gpsPathRoutes);
 
 module.exports = app;
