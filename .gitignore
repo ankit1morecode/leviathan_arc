@@ -1,0 +1,67 @@
+# =========================
+# Node / Express
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build / cache
+dist/
+build/
+.cache/
+.tmp/
+
+# =========================
+# Environment files
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# OS / Editor junk
+# =========================
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+# =========================
+# Runtime / PID files
+# =========================
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+coverage/
+.nyc_output/
+
+public/uploads/
+public/recordings/
+public/temp/
+
+*.csv
+*.sqlite
+*.db
+*.jsonl
+
+publisher/*.log
+publisher/*.tmp
+publisher/tmp/
+publisher/output/
+
+!public/css/
+!public/js/
+!public/img/

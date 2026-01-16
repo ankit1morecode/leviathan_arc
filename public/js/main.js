@@ -6,7 +6,6 @@ import "./obstacle.js";
 import "./humans.js";
 import "./gas.js";
 
-import { startRecord, stopRecord, replay } from "./record.js";
 import { socket } from "./socket.js";
 
 window.startRecord = startRecord;

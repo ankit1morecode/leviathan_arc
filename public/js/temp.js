@@ -1,4 +1,6 @@
 import { socket } from "./socket.js";
+console.log("✅ temp.js loaded");
+
 
 function addLogItem(log, mode = "prepend") {
   const logsEl = document.getElementById("logs");

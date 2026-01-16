@@ -282,7 +282,6 @@ async function replaySelectedPath() {
   }, 300);
 }
 
-/* ✅ Record button handlers */
 if (btnStartRecord) {
   btnStartRecord.onclick = async () => {
     const name = (pathNameInput?.value || "").trim() || "route1";
