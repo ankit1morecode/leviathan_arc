@@ -3,11 +3,7 @@ const express = require("express");
 const connectDB = require("./config/db");
 
 const dashboardRoutes = require("./routes/dashboardRoutes");
-const recordRoutes = require("./routes/recordRoutes");
-const replayRoutes = require("./routes/replayRoutes");
 const mapRoutes = require("./routes/mapRoutes");
-
-
 
 const app = express();
 

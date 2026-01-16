@@ -319,7 +319,7 @@ button:active {
 }
 
 /* Better spacing for gas lines */
-.sensor-grid .card p {
+.sensor-grid .card p{
   margin-top: 6px;
   font-size: 1.1rem;
 }
@@ -330,7 +330,6 @@ button:active {
     grid-template-columns: 1fr;
   }
 }
-
 
 .btn-map{
   display:inline-block;

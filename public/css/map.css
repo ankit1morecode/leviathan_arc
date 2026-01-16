@@ -9,7 +9,6 @@ body {
   width: 100vw;
 }
 
-/* topbar */
 .topbar {
   position: absolute;
   z-index: 999;
