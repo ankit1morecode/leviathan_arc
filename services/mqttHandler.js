@@ -13,7 +13,6 @@ function safeJSONParse(buffer) {
 }
 
 module.exports = function mqttHandler(mqttClient, io) {
-  // ✅ Throttle DB writes so MongoDB doesn't overload
   const throttle = {
     temp: 0,
     humidity: 0,
@@ -40,13 +39,11 @@ module.exports = function mqttHandler(mqttClient, io) {
         return;
       }
 
-      // ✅ POSE (only realtime emit, NO DB saving now)
       if (topic === "leviathan/arc01/pose") {
         io.emit("pose_update", data);
         return;
       }
 
-      // ✅ HUMIDITY (save throttled: 1.5 sec)
       if (topic === "leviathan/arc01/humidity") {
         io.emit("humidity_update", data);
 
@@ -58,12 +55,10 @@ module.exports = function mqttHandler(mqttClient, io) {
           unit: data.unit || "%",
         });
 
-        // send saved version (with createdAt) to keep dashboard consistent
         io.emit("humidity_update", saved);
         return;
       }
 
-      // ✅ OBSTACLE (save throttled: 1 sec)
       if (topic === "leviathan/arc01/obstacle") {
         io.emit("obstacle_update", data);
 
@@ -80,7 +75,6 @@ module.exports = function mqttHandler(mqttClient, io) {
         return;
       }
 
-      // ✅ THERMAL HUMANS (save throttled: 2 sec)
       if (topic === "leviathan/arc01/thermal/humans") {
         io.emit("human_update", data);
 
@@ -97,7 +91,6 @@ module.exports = function mqttHandler(mqttClient, io) {
         return;
       }
 
-      // ✅ GPS (only realtime emit, NO DB saving here)
       if (topic === "leviathan/arc01/gps") {
         io.emit("gps_update", data);
         return;

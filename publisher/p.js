@@ -1,5 +1,5 @@
 const mqtt = require("mqtt");
-const client = mqtt.connect("mqtt://192.168.137.39:1883");
+const client = mqtt.connect("mqtt://10.63.12.72:1883");
 
 let t = 0;
 let lat = 28.6139;

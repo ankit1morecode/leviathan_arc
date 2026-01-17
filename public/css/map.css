@@ -9,7 +9,6 @@ body {
   width: 100vw;
 }
 
-/* ✅ keep topbar always above */
 .topbar {
   position: fixed;
   top: 10px;
@@ -17,7 +16,6 @@ body {
   right: 10px;
 }
 
-/* ✅ sidebar starts under topbar dynamically */
 .sidebar {
   position: fixed;
   top: 90px;
@@ -25,7 +23,6 @@ body {
   width: 260px;
   max-height: calc(100vh - 120px);
 }
-
 
 .topbar {
   position: absolute;
@@ -51,7 +48,7 @@ body {
   margin-right: 8px;
 }
 
-.badge {
+.badge{
   padding: 6px 10px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.12);
@@ -59,7 +56,7 @@ body {
   font-weight: 600;
 }
 
-.btn {
+.btn{
   cursor: pointer;
   color: white;
   text-decoration: none;
@@ -80,7 +77,6 @@ body {
 .secondary { background: #374151; }
 .danger { background: #dc2626; }
 
-/* ✅ input used in topbar */
 .input {
   padding: 7px 12px;
   border-radius: 10px;
@@ -90,8 +86,7 @@ body {
   min-width: 150px;
 }
 
-/* ✅ Sidebar */
-.sidebar {
+.sidebar{
   position: absolute;
   z-index: 999;
   top: 85px;
@@ -99,26 +94,25 @@ body {
   width: 260px;
   max-height: calc(100vh - 110px);
   overflow-y: auto;
-
   background: rgba(0,0,0,0.82);
   color: white;
   border-radius: 14px;
   padding: 12px;
 }
 
-.sb-title {
+.sb-title{
   font-weight: 900;
   font-size: 16px;
   margin-bottom: 10px;
 }
 
-.pathsList {
+.pathsList{
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.pathItem {
+.pathItem{
   padding: 10px;
   border-radius: 12px;
   background: rgba(255,255,255,0.08);

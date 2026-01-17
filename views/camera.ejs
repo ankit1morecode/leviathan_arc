@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ESP32-CAM View</title>
+  <link rel="stylesheet" href="/style.css"/>
+  <style>
+    .cam-wrap{
+      margin-top: 14px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+      background: rgba(0,0,0,0.25);
+    }
+    .cam-stream{
+      width: 100%;
+      display: block;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      background: rgba(0,0,0,0.35);
+    }
+    .cam-topbar{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+      align-items:center;
+      justify-content: space-between;
+    }
+    .cam-input{
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.25);
+      color: white;
+      width: min(520px, 100%);
+      outline: none;
+    }
+    .cam-actions{display:flex; gap:10px; flex-wrap:wrap;}
+    .badge{
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-weight: 800;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>ESP32-CAM Live View</h1>
+
+    <div class="cam-topbar">
+      <input id="camUrl" class="cam-input" placeholder="Enter ESP32 stream url e.g. http://192.168.1.50:81/stream" />
+      <div class="cam-actions">
+        <a href="/map" class="btn-map">🗺 Map</a>
+        <button id="btnLoad">📷 Load Stream</button>
+      </div>
+    </div>
+
+    <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+      <div class="badge">Status: <span id="camStatus">OFF</span></div>
+      <div class="badge">Humans: <span id="humCount">--</span></div>
+      <div class="badge">Obstacle: <span id="obsDist">--</span> cm</div>
+    </div>
+
+    <div class="cam-wrap">
+      <img id="camStream" class="cam-stream" alt="ESP32-CAM Stream"/>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/camera.js"></script>
+</body>
+</html>

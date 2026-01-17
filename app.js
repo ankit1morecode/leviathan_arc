@@ -5,6 +5,7 @@ const connectDB = require("./config/db");
 const dashboardRoutes = require("./routes/dashboardRoutes");
 const mapRoutes = require("./routes/mapRoutes");
 const gpsPathRoutes = require("./routes/gpsPathRoutes");
+const cameraRoutes = require("./routes/cameraRoutes");
 
 const app = express();
 
@@ -18,5 +19,6 @@ connectDB();
 app.use("/", dashboardRoutes);
 app.use("/map", mapRoutes);
 app.use("/api/gpspath", gpsPathRoutes);
+app.use("/camera", cameraRoutes);
 
 module.exports = app;
