@@ -6,6 +6,7 @@ const dashboardRoutes = require("./routes/dashboardRoutes");
 const mapRoutes = require("./routes/mapRoutes");
 const gpsPathRoutes = require("./routes/gpsPathRoutes");
 const cameraRoutes = require("./routes/cameraRoutes");
+const cmdRoutes = require("./routes/cmdRoutes");
 
 const app = express();
 
@@ -20,5 +21,6 @@ app.use("/", dashboardRoutes);
 app.use("/map", mapRoutes);
 app.use("/api/gpspath", gpsPathRoutes);
 app.use("/camera", cameraRoutes);
+app.use("/api/cmd", cmdRoutes);
 
 module.exports = app;

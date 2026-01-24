@@ -8,6 +8,7 @@ const Humidity = require("../models/Humidity");
 const Obstacle = require("../models/Obstacle");
 const ThermalHuman = require("../models/ThermalHuman");
 const Gas = require("../models/Gas");
+const cmdPublisher = require("../services/cmdPublisher");
 
 module.exports = function setupSocket(server) {
   const io = new Server(server, {
@@ -16,7 +17,8 @@ module.exports = function setupSocket(server) {
 
   const mqttClient = createMQTTClient();
   const state = mqttHandler(mqttClient, io);
-
+  io.cmd = cmdPublisher(mqttClient);
+  
   io.mqttClient = mqttClient;
   io.state = state;
 

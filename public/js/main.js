@@ -5,6 +5,7 @@ import "./humidity.js";
 import "./obstacle.js";
 import "./humans.js";
 import "./gas.js";
+import "./cmd.js";
 
 import { socket } from "./socket.js";
 
