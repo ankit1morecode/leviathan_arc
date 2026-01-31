@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ARC01 Live Map</title>
 
   <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- ✅ Production-safe animation library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
   <!-- Your CSS -->
   <link rel="stylesheet" href="/css/map.css">
 </head>
 
 <body>
-
+        <div id="map"></div>
   <!-- ✅ Sidebar -->
-  <div class="sidebar">
-    <div class="sb-title">📍 Saved Paths</div>
-    <div id="pathsList" class="pathsList"></div>
-  </div>
 
-  <div class="topbar">
+  <div class="topbar animate__animated animate__fadeInDown">
     <div class="title">🗺 ARC01 Live Map</div>
 
     <a class="btn" href="/">⬅ Dashboard</a>
@@ -33,7 +33,7 @@
     <button class="btn secondary" id="btnStartRecord">⏺ Start</button>
     <button class="btn secondary" id="btnStopRecord">⏹ Stop</button>
     <button class="btn" id="btnReplayPath">▶ Replay</button>
-
+    
     <button class="btn secondary" id="btnFollow">🎯 Follow: ON</button>
     <button class="btn secondary" id="btnTogglePath">🧵 Path: ON</button>
     <button class="btn secondary" id="btnToggleObstacles">🚧 Obstacles: ON</button>
@@ -42,12 +42,20 @@
     <button class="btn danger" id="btnReset">♻ Reset</button>
   </div>
 
-  <div id="map"></div>
+  <div class="sidebar animate__animated animate__fadeInLeft">
+    <div class="sb-title">📍 Saved Paths</div>
+    <div id="pathsList" class="pathsList"></div>
+  </div>
 
+
+  <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
+  <!-- Socket.IO -->
   <script src="/socket.io/socket.io.js"></script>
 
+  <!-- Map logic -->
   <script src="/js/map.js"></script>
 </body>
+
 </html>

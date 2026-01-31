@@ -1,4 +1,14 @@
 const router = require("express").Router();
+const { sendRTB } = require("../services/cmdPublisher");
+
+router.post("/cmd/rtb", async (req, res) => {
+  try {
+    await sendRTB();
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 
 router.post("/", (req, res) => {
   try {

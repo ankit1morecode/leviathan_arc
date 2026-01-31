@@ -1,27 +1,27 @@
 /* ===============================
-   Leviathan ARC Dashboard CSS
-   Premium Dark Glass UI
-   Works with your current HTML
+   Leviathan ARC – Professional Dashboard UI
    =============================== */
 
 :root {
-  --bg0: #070a12;
-  --bg1: #0b1020;
-  --card: rgba(255, 255, 255, 0.06);
-  --card-2: rgba(255, 255, 255, 0.08);
-  --border: rgba(255, 255, 255, 0.12);
-  --text: #edf2ff;
-  --muted: rgba(237, 242, 255, 0.7);
+  --bg-main: #0b0f1a;
+  --bg-panel: #111827;
+  --bg-card: #0f172a;
 
-  --accent: #4cc9f0;
-  --accent2: #7c3aed;
+  --border-soft: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.14);
 
-  --good: #22c55e;
-  --warn: #f59e0b;
-  --bad: #ef4444;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
 
-  --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
-  --radius: 18px;
+  --accent: #38bdf8;
+  --accent-strong: #0ea5e9;
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  --radius: 14px;
+  --shadow: 0 20px 45px rgba(0,0,0,0.45);
 }
 
 * {
@@ -30,315 +30,312 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  width: 100%;
+html, body {
   min-height: 100%;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell,
-    "Helvetica Neue", Arial, "Noto Sans";
-  color: var(--text);
-  background: radial-gradient(900px 500px at 10% 10%, rgba(76, 201, 240, 0.18), transparent 60%),
-    radial-gradient(700px 450px at 90% 20%, rgba(124, 58, 237, 0.16), transparent 55%),
-    linear-gradient(180deg, var(--bg0), var(--bg1));
+  background: linear-gradient(180deg, #060912, var(--bg-main));
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu;
+  color: var(--text-main);
 }
 
+/* ===============================
+   Layout
+   =============================== */
+
 .container {
-  width: min(1200px, 92vw);
-  margin: 0 auto;
+  width: min(1280px, 94vw);
+  margin: auto;
   padding: 26px 0 80px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 18px;
 }
 
 /* ===============================
    Header
    =============================== */
 
-h1 {
-  font-size: clamp(1.7rem, 2.3vw, 2.2rem);
-  font-weight: 900;
-  letter-spacing: 0.4px;
-  margin-bottom: 18px;
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px;
+  background: linear-gradient(180deg, #0f172a, #020617);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.dash-title {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
-h1::before {
-  content: "⚡";
-  font-size: 1.6rem;
+.logo {
+  font-size: 1.8rem;
+  color: var(--accent);
 }
 
-h2 {
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: 0.3px;
-  color: var(--muted);
-  margin-bottom: 10px;
-}
-
-h3 {
-  font-size: 1.25rem;
+.dash-title h1 {
+  font-size: 1.4rem;
   font-weight: 900;
-  margin-bottom: 12px;
+  letter-spacing: 0.4px;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.dash-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--success);
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 10px rgba(34,197,94,0.8);
 }
 
 /* ===============================
-   Cards Grid (top 6)
+   Cards
    =============================== */
 
-.cards {
+.cards,
+.sensor-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 14px;
-  margin: 0;
 }
 
-/* Common Card Style */
 .card {
+  background: linear-gradient(180deg, var(--bg-card), #020617);
+  border: 1px solid var(--border-soft);
   border-radius: var(--radius);
-  padding: 16px 16px;
-  background: linear-gradient(180deg, var(--card-2), transparent);
-  border: 1px solid var(--border);
+  padding: 16px;
   box-shadow: var(--shadow);
-  backdrop-filter: blur(12px);
-  transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+  transition: transform .15s ease, border-color .15s ease;
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(76, 201, 240, 0.32);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), transparent);
+  transform: translateY(-3px);
+  border-color: rgba(56,189,248,0.35);
 }
 
-/* Card value text */
+.card h2 {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
 .card p {
   font-size: 1.35rem;
   font-weight: 900;
-  line-height: 1.2;
-}
-
-.card p b {
-  font-size: 0.92rem;
-  color: var(--muted);
-  font-weight: 800;
-}
-
-/* highlight robot id */
-#robotId {
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.container > .card {
-  margin-top: 12px;
-}
-
-/* Make these sensor cards display nicely */
-.container > .card p {
-  font-size: 1.15rem;
-  margin-top: 6px;
-}
-
-/* Gas status pill styling */
-#gasStatus {
-  display: inline-block;
-  padding: 6px 12px;
-  margin-left: 6px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.05);
-  font-weight: 900;
-  font-size: 0.9rem;
-  letter-spacing: 0.3px;
-}
-
-/* Optional classes you can add from JS */
-.safe {
-  color: var(--good);
-  border-color: rgba(34, 197, 94, 0.35);
-  background: rgba(34, 197, 94, 0.12);
-}
-
-.warning {
-  color: var(--warn);
-  border-color: rgba(245, 158, 11, 0.35);
-  background: rgba(245, 158, 11, 0.12);
-}
-
-.danger {
-  color: var(--bad);
-  border-color: rgba(239, 68, 68, 0.35);
-  background: rgba(239, 68, 68, 0.12);
-}
-
-.map-section {
-  margin-top: 20px;
-}
-
-.map-wrapper {
-  margin-top: 10px;
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: var(--shadow);
-}
-
-/* Canvas style */
-canvas {
-  display: block;
-  width: 100%;
-  height: auto;
-  background: rgba(0, 0, 0, 0.28);
 }
 
 /* ===============================
-   Controls
+   Gas Status
    =============================== */
 
-.controls {
-  margin-top: 12px;
+#gasStatus {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.75rem;
+  border: 1px solid var(--border-soft);
+}
+
+.safe {
+  color: var(--success);
+  background: rgba(34,197,94,0.12);
+}
+
+.warning {
+  color: var(--warning);
+  background: rgba(245,158,11,0.12);
+}
+
+.danger {
+  color: var(--danger);
+  background: rgba(239,68,68,0.12);
+}
+
+/* ===============================
+   Navigation Links (Map / Camera)
+   =============================== */
+
+.nav-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ===============================
+   Premium Dashboard Actions
+   =============================== */
+
+.dashboard-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
-button {
-  border: none;
-  outline: none;
-  cursor: pointer;
+.dashboard-actions button,
+.dashboard-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
   border-radius: 14px;
-  padding: 12px 18px;
-  font-weight: 900;
-  color: var(--text);
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
-  transition: transform 0.15s ease, filter 0.15s ease, opacity 0.15s ease;
+  font-weight: 800;
+  cursor: pointer;
+  color: var(--text-main);
+  text-decoration: none;
+  border: 1px solid var(--border-soft);
+  transition: transform .15s ease, filter .15s ease;
 }
 
-button:hover {
+.dashboard-actions button:hover,
+.dashboard-actions a:hover {
   transform: translateY(-2px);
-  filter: brightness(1.05);
+  filter: brightness(1.08);
 }
 
-button:active {
-  transform: translateY(0px);
-  opacity: 0.9;
+.btn-primary {
+  background: linear-gradient(180deg, #2563eb, #1e3a8a);
+}
+
+.btn-secondary {
+  background: linear-gradient(180deg, #1f2937, #020617);
+}
+
+.btn-danger {
+  background: linear-gradient(180deg, #7f1d1d, #450a0a);
+}
+
+.btn-camera {
+  background: linear-gradient(180deg, #0f766e, #042f2e);
+}
+
+.btn-map {
+  background: linear-gradient(180deg, #334155, #020617);
 }
 
 /* ===============================
    Logs
    =============================== */
 
-.logs-section {
-  margin-top: 0;
-}
-
 .logs {
-  margin-top: 10px;
   height: 320px;
   overflow-y: auto;
   padding: 14px;
   border-radius: var(--radius);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(0, 0, 0, 0.25);
-  box-shadow: var(--shadow);
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: rgba(237, 242, 255, 0.86);
+  background: #020617;
+  border: 1px solid var(--border-soft);
 }
 
 .logs div {
-  padding: 10px 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.logs div:last-child {
-  border-bottom: none;
-}
-
-/* Scrollbar */
-.logs::-webkit-scrollbar {
-  width: 10px;
-}
-.logs::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.16);
-  border-radius: 999px;
-}
-.logs::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.23);
+  padding: 10px;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  color: var(--text-muted);
 }
 
 /* ===============================
    Responsive
    =============================== */
 
-@media (max-width: 920px) {
-  .cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 560px) {
-  .cards {
-    grid-template-columns: 1fr;
+@media (max-width: 640px) {
+  .dash-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
   }
 
-  .card p {
-    font-size: 1.15rem;
+  .dashboard-actions,
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
   }
 
-  button {
+  .dashboard-actions button,
+  .dashboard-actions a {
     width: 100%;
     justify-content: center;
   }
 }
 /* ===============================
-   Sensor Grid (Humidity/Obstacle/Humans/Gas)
+   Dashboard Button Layout
    =============================== */
 
-.sensor-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin : 0;
-}
-
-/* Make sensor cards a bit tighter */
-.sensor-grid .card {
-  min-height: 130px;
-}
-
-/* Better spacing for gas lines */
-.sensor-grid .card p{
+/* Navigation buttons (Map + Camera) */
+.dashboard-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
   margin-top: 6px;
-  font-size: 1.1rem;
 }
 
-/* Responsive: 1 column on small screens */
-@media (max-width: 560px) {
-  .sensor-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.btn-map {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 16px;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  color: white;
+.btn-nav {
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 800;
   text-decoration: none;
-  border-radius: 14px;
-  font-weight: 900;
-  margin-top: 6px;
-  width: fit-content;
+  color: var(--text-main);
+  border: 1px solid var(--border-soft);
+  background: linear-gradient(180deg, #334155, #020617);
+  transition: transform .15s ease, filter .15s ease;
 }
 
-.btn-map:hover {
-  filter: brightness(1.05);
+.btn-nav:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.btn-camera {
+  background: linear-gradient(180deg, #0f766e, #042f2e);
+}
+
+/* Main control buttons */
+.dashboard-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.dashboard-actions button {
+  padding: 14px 22px;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  font-weight: 900;
+  border: 1px solid var(--border-soft);
+  cursor: pointer;
+  transition: transform .15s ease, filter .15s ease;
+}
+
+.dashboard-actions button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .dashboard-nav {
+    justify-content: center;
+  }
+
+  .dashboard-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }

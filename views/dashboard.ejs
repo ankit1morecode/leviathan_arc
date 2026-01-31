@@ -5,13 +5,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leviathan Dashboard</title>
+
+  <!-- ✅ Production-safe animation library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <!-- ✅ Your main styles -->
   <link rel="stylesheet" href="/style.css" />
 </head>
 
 <body>
-  <div class="container">
-    <h1>Leviathan ARC Dashboard</h1>
+  <div class="container animate__animated animate__fadeIn">
 
+    <!-- HEADER -->
+    <header class="dash-header">
+      <div class="dash-title">
+        <span class="logo">⚙</span>
+        <div>
+          <h1>Leviathan ARC</h1>
+          <p class="subtitle">Autonomous Robotics Command Dashboard</p>
+        </div>
+      </div>
+
+      <div class="dash-status">
+        <span class="status-dot online"></span>
+        <span class="status-text">SYSTEM ONLINE</span>
+      </div>
+    </header>
+
+    <!-- NAVIGATION (Map + Camera) -->
+    <div class="dashboard-nav">
+      <a href="/map" class="btn-nav">🗺 Live Map</a>
+      <a href="/camera" class="btn-nav btn-camera">📷 Camera</a>
+    </div>
+
+    <!-- METRICS -->
     <div class="cards">
       <div class="card">
         <h2>Robot ID</h2>
@@ -20,12 +47,9 @@
 
       <div class="card">
         <h2>Temperature</h2>
-        <p id="temp">--</p>
-      </div>
-
-      <div class="card">
-        <h2>Unit</h2>
-        <p id="unit">--</p>
+        <p>
+          <span id="temp">--</span> <span class="unit">°C</span>
+        </p>
       </div>
 
       <div class="card">
@@ -39,43 +63,45 @@
       </div>
 
       <div class="card">
-        <h2>Speed</h2>
-        <p id="speed">0 km/h</p>
+        <h2>Humidity</h2>
+        <p id="humidity">--</p>
       </div>
     </div>
 
+    <!-- SENSORS -->
     <div class="sensor-grid">
+
       <div class="card">
-        <h2>Humidity</h2>
-        <p id="humidity">--</p>
+        <h2>Speed</h2>
+        <p id="speed">0 km/h</p>
       </div>
 
       <div class="card">
         <h2>Gas Sensor</h2>
         <p><b>Raw:</b> <span id="gasRaw">--</span></p>
-        <p><b>Voltage:</b> <span id="gasVoltage">--</span> V</p>
+        <!-- <p><b>Voltage:</b> <span id="gasVoltage">--</span> V</p> -->
         <p><b>Status:</b> <span id="gasStatus">NO_DATA</span></p>
       </div>
     </div>
 
-    <div>
-      <a href="/map" class="btn-map">🗺 Map</a>
+    <!-- MAIN ACTION BUTTONS -->
+    <div class="dashboard-actions">
+      <button id="btnStart" class="btn-primary">▶ Start Mission</button>
+      <button id="btnRTB" class="btn-secondary">🏠 Return to Base</button>
+      <button id="btnStop" class="btn-danger">⛔ Emergency Stop</button>
     </div>
 
-    <div class="controls">
-      <button id="btnStart">▶ START</button>
-      <button id="btnRTB">🏠 RTB</button>
-      <button id="btnStop">⛔ STOP</button>
-    </div>
-
-
+    <!-- LOGS -->
     <div class="logs-section">
       <h3>Live Data Logs</h3>
       <div id="logs" class="logs"></div>
     </div>
   </div>
 
+  <!-- ✅ Socket.IO -->
   <script src="/socket.io/socket.io.js"></script>
+
+  <!-- ✅ Dashboard logic -->
   <script type="module" src="/js/main.js"></script>
 </body>
 

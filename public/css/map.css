@@ -1,28 +1,29 @@
+/* ===============================
+   Leviathan ARC – Live Map UI
+   =============================== */
+:root {
+  --map-header-height: 74px;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu;
   background: #0b0f1a;
+  color: #e5e7eb;
 }
+
+/* ===============================
+   Map
+   =============================== */
 
 #map {
   height: 100vh;
   width: 100vw;
 }
 
-.topbar {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-}
-
-.sidebar {
-  position: fixed;
-  top: 90px;
-  left: 10px;
-  width: 260px;
-  max-height: calc(100vh - 120px);
-}
+/* ===============================
+   Topbar
+   =============================== */
 
 .topbar {
   position: absolute;
@@ -31,62 +32,93 @@ body {
   left: 10px;
   right: 10px;
 
-  background: rgba(0, 0, 0, 0.75);
-  color: white;
-
-  padding: 10px 14px;
-  border-radius: 12px;
-
   display: flex;
-  gap: 10px;
   flex-wrap: wrap;
+  gap: 10px;
   align-items: center;
+
+  padding: 12px 16px;
+  border-radius: 14px;
+
+  background: linear-gradient(180deg, rgba(15,23,42,0.95), rgba(2,6,23,0.95));
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.45);
 }
 
 .title {
-  font-weight: 800;
-  margin-right: 8px;
+  font-weight: 900;
+  font-size: 15px;
+  margin-right: 6px;
 }
 
-.badge{
-  padding: 6px 10px;
+/* ===============================
+   Badges
+   =============================== */
+
+.badge {
+  padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.14);
   font-size: 13px;
-  font-weight: 600;
-}
-
-.btn{
-  cursor: pointer;
-  color: white;
-  text-decoration: none;
-
-  padding: 7px 12px;
-  border: none;
-
-  background: #2563eb;
-  border-radius: 10px;
-  font-size: 14px;
   font-weight: 700;
 }
 
-.btn:hover {
-  filter: brightness(1.1);
+/* ===============================
+   Buttons
+   =============================== */
+
+.btn {
+  cursor: pointer;
+  color: #e5e7eb;
+  text-decoration: none;
+
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.14);
+
+  background: linear-gradient(180deg, #2563eb, #1e3a8a);
+  font-size: 14px;
+  font-weight: 800;
+
+  transition: transform .15s ease, filter .15s ease;
 }
 
-.secondary { background: #374151; }
-.danger { background: #dc2626; }
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.secondary {
+  background: linear-gradient(180deg, #1f2937, #020617);
+}
+
+.danger {
+  background: linear-gradient(180deg, #7f1d1d, #450a0a);
+}
+
+/* ===============================
+   Inputs
+   =============================== */
 
 .input {
-  padding: 7px 12px;
-  border-radius: 10px;
-  border: none;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.14);
   outline: none;
+
+  background: rgba(0,0,0,0.35);
+  color: #e5e7eb;
+
   font-size: 14px;
-  min-width: 150px;
+  min-width: 160px;
 }
 
-.sidebar{
+/* ===============================
+   Sidebar
+   =============================== */
+
+.sidebar {
   position: absolute;
   z-index: 999;
   top: 85px;
@@ -94,28 +126,35 @@ body {
   width: 260px;
   max-height: calc(100vh - 110px);
   overflow-y: auto;
-  background: rgba(0,0,0,0.82);
-  color: white;
-  border-radius: 14px;
-  padding: 12px;
+
+  background: linear-gradient(180deg, rgba(15,23,42,0.95), rgba(2,6,23,0.95));
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 16px;
+  padding: 14px;
+
+  box-shadow: 0 20px 45px rgba(0,0,0,0.45);
 }
 
-.sb-title{
+.sb-title {
   font-weight: 900;
   font-size: 16px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-.pathsList{
+/* ===============================
+   Saved Paths
+   =============================== */
+
+.pathsList {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.pathItem{
+.pathItem {
   padding: 10px;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.08);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.12);
 }
 
@@ -136,26 +175,65 @@ body {
   text-decoration: underline;
 }
 
+/* ===============================
+   Sidebar Buttons
+   =============================== */
+
 .pathBtns {
   display: flex;
   gap: 6px;
 }
 
 .sb-btn {
-  border: none;
+  border: 1px solid rgba(255,255,255,0.14);
   cursor: pointer;
   border-radius: 10px;
   padding: 6px 9px;
   font-weight: 800;
   font-size: 12px;
-  color: white;
+  color: #e5e7eb;
+
+  transition: transform .12s ease, filter .12s ease;
 }
 
-.sb-play { background: #2563eb; }
-.sb-del  { background: #dc2626; }
-.sb-btn:hover { filter: brightness(1.08); }
+.sb-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+.sb-play {
+  background: linear-gradient(180deg, #2563eb, #1e3a8a);
+}
+
+.sb-del {
+  background: linear-gradient(180deg, #7f1d1d, #450a0a);
+}
+
+/* ===============================
+   Meta
+   =============================== */
 
 .meta {
   font-size: 12px;
-  opacity: 0.85;
+  opacity: 0.75;
+}
+
+/* ===============================
+   Mobile
+   =============================== */
+
+@media (max-width: 640px) {
+  .topbar,
+  .sidebar {
+    left: 8px;
+    right: 8px;
+  }
+
+  .sidebar {
+    width: auto;
+  }
+}
+
+.sidebar{
+    margin-top: 40px;
 }
